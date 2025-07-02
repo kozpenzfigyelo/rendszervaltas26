@@ -6,14 +6,20 @@
   <title>Közpénz Kártya</title>
   <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(to bottom, #0b0d3c 0%, #e0e4f8 50%, #e0e4f8 100%);
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      padding-top: 60px;
-    }
+     body {
+  margin: 0;
+  min-height: 100vh;
+  /* háttérkép és lineáris átfedés */
+  background-image:
+    linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
+    url('tt.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  padding-top: 60px; /* hely a navbar-nak */
+}
 
     .navbar {
       position: fixed;
