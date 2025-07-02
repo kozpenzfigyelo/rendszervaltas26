@@ -36,14 +36,19 @@
     }
 
     .navbar-text {
-      font-weight: 600;
-      font-size: 20px;
-      margin-left: 15px;
-      user-select: none;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-    }
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 15px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  word-break: break-word;
+}
+
+
+
 
     .red { color: #c8102e; }
     .white { color: #ffffff; text-shadow: 0 0 3px rgba(0,0,0,0.7); }
@@ -197,7 +202,10 @@
         height: 220px;
         padding: 15px 20px;
       }
-
+.navbar-text {
+    font-size: 14px;
+    margin-left: 10px;
+  }
       .card-balance {
         font-size: 22px;
       }
@@ -214,6 +222,8 @@
         border-radius: 12px;
       }
     }
+	
+
   </style>
 </head>
 <body>
