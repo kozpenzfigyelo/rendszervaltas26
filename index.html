@@ -7,19 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet">
   <style>
      body {
-       margin: 0;
-       min-height: 100vh;
-       /* háttérkép és lineáris átfedés */
-       background-image:
-         linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
-         url('tt.jpg');
-       background-repeat: no-repeat;
-       background-size: cover;
-       background-position: center top;
-       font-family: 'Segoe UI', sans-serif;
-       overflow-x: hidden;
-       padding-top: 60px; /* hely a navbar-nak */
-     }
+  margin: 0;
+  min-height: 100vh;
+  /* háttérkép és lineáris átfedés */
+  background-image:
+    linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
+    url('tt.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  padding-top: 60px; /* hely a navbar-nak */
+}
 
     .navbar {
       position: fixed;
@@ -30,32 +30,39 @@
       background-color: #141e30;
       display: flex;
       align-items: center;
-      padding: 0 15px;
+      padding: 0 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       z-index: 2000;
-      font-size: 18px;
     }
 
     .navbar-text {
-      font-weight: 600;
-      font-size: 20px;
-      margin-left: 15px;
-      user-select: none;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-    }
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 15px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .navbar-text {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
+
 
     .red { color: #c8102e; }
     .white { color: #ffffff; text-shadow: 0 0 3px rgba(0,0,0,0.7); }
     .green { color: #007a33; }
 
     .navbar img {
-      max-width: 100%;
-      height: 50px;
+      height: 60px;
       width: auto;
       user-select: none;
-      object-fit: contain;
     }
 
     .message {
@@ -70,13 +77,12 @@
       padding: 20px 25px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 50, 150, 0.2);
-      max-width: 95vw;
     }
 
     .card {
       width: 90%;
       max-width: 420px;
-      min-height: 260px;
+      height: 260px;
       background: linear-gradient(135deg, #141e30, #243b55);
       border-radius: 20px;
       padding: 24px;
@@ -88,7 +94,6 @@
       position: relative;
       color: #e4e4e4;
       overflow: hidden;
-      height: auto;
     }
 
     .card::before {
@@ -160,7 +165,6 @@
                    -1px -1px 1px rgba(255,255,255,0.05);
       margin: 10px 0;
       z-index: 2;
-      word-break: break-word;
     }
 
     .card-meta {
@@ -180,7 +184,6 @@
       backdrop-filter: blur(6px);
       font-weight: 500;
       z-index: 2;
-      word-break: break-word;
     }
 
     .issuer-logo {
@@ -197,15 +200,12 @@
       font-size: 13px;
       text-align: center;
       margin-top: 30px;
-      padding: 0 10px;
-      word-break: break-word;
     }
 
     @media (max-width: 480px) {
       .card {
-        height: auto;
+        height: 220px;
         padding: 15px 20px;
-        max-width: 95vw;
       }
 
       .card-balance {
@@ -216,22 +216,8 @@
         font-size: 16px;
       }
 
-      .card-number {
-        font-size: 18px;
-        letter-spacing: 2px;
-      }
-
-      .card-meta {
-        font-size: 12px;
-      }
-
-      .countdown {
-        font-size: 14px;
-        padding: 8px 12px;
-      }
-
       .message {
-        font-size: 16px;
+        font-size: 14px;
         margin: 25px auto 15px auto;
         padding: 15px 20px;
         max-width: 95vw;
