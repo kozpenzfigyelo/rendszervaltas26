@@ -4,103 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Közpénz Kártya</title>
+  <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  min-height: 100vh;
-  /* háttérkép és lineáris átfedés */
-  background-image:
-    linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
-    url('tt.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
-  font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  padding-top: 60px; /* hely a navbar-nak */
-}
-
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #0b0d3c 0%, #e0e4f8 50%, #e0e4f8 100%);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
 
     .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #141e30;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 2000;
-  box-sizing: border-box;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #141e30;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 2000;
+    }
 
-.navbar img {
-  height: 50px; /* kisebb a mobil miatt */
-  width: auto;
-  user-select: none;
-}
+    .navbar-text {
+      font-weight: 600;
+      font-size: 20px;
+      margin-left: 15px;
+      user-select: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
 
-.navbar-text {
-  font-weight: 600;
-  font-size: 20px;
-  margin-left: 15px;
-  user-select: none;
-  white-space: nowrap;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  align-items: center;
-}
+    .red { color: #c8102e; }
+    .white { color: #ffffff; text-shadow: 0 0 3px rgba(0,0,0,0.7); }
+    .green { color: #007a33; }
 
-.red {
-  color: #c8102e;
-}
-
-.white {
-  color: #ffffff;
-  text-shadow: 0 0 3px rgba(0,0,0,0.7);
-}
-
-.green {
-  color: #007a33;
-}
-
-/* Mobilra */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 10px;
-    height: 50px;
-  }
-  .navbar img {
-    height: 50px;
-  }
-  .navbar-text {
-    font-size: 17px;
-    margin-left: 10px;
-    white-space: normal; /* lehet tördelni */
-    flex-wrap: wrap; /* ha kell, több sorba törik */
-  }
-}
-
-
+    .navbar img {
+      height: 60px;
+      width: auto;
+      user-select: none;
+    }
 
     .message {
-  width: 90%;
-  max-width: 420px;
-  margin: 40px auto 20px auto;
-  color: #0b2a59; /* sötétkék szöveg, hogy legyen kontraszt */
-  font-size: 17px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.5;
-  user-select: none;
-  text-shadow: none;
-  background-color: #88e8ff; /* világoskék háttér */
-  padding: 20px 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 50, 150, 0.2); /* finom kék árnyék */
-}
+      width: 90%;
+      max-width: 420px;
+      margin: 40px auto 20px auto;
+      color: #0b2a59;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+      background-color: #88e8ff;
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 50, 150, 0.2);
+    }
 
     .card {
       width: 90%;
@@ -111,19 +72,39 @@
       padding: 24px;
       margin: 0 auto;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      box-sizing: border-box;
       color: #e4e4e4;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      animation: shine 4s infinite;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .card-title {
@@ -134,16 +115,46 @@
       letter-spacing: 1px;
     }
 
+    .chip {
+      width: 42px;
+      height: 30px;
+      background: linear-gradient(to right, #cfd9df, #e2ebf0);
+      border-radius: 6px;
+      box-shadow: inset 0 0 1px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .hologram {
+      width: 50px;
+      height: 35px;
+      background: linear-gradient(135deg, rgba(255,0,255,0.3), rgba(0,255,255,0.3), rgba(255,255,0,0.3));
+      mix-blend-mode: screen;
+      border-radius: 6px;
+      box-shadow: 0 0 4px rgba(255,255,255,0.3);
+      margin-top: 8px;
+    }
+
     .card-balance {
-      font-size: 30px;
+      font-size: 26px;
       font-weight: 700;
-      margin: 12px 0;
       color: #ffffff;
+      z-index: 2;
+    }
+
+    .card-number {
+      font-family: 'OCR A Std', monospace;
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.7),
+                   -1px -1px 1px rgba(255,255,255,0.05);
+      margin: 10px 0;
+      z-index: 2;
     }
 
     .card-meta {
       font-size: 13px;
       color: #9baec8;
+      z-index: 2;
     }
 
     .countdown {
@@ -156,21 +167,16 @@
       border-radius: 12px;
       backdrop-filter: blur(6px);
       font-weight: 500;
+      z-index: 2;
     }
 
-    .chip {
-      width: 42px;
-      height: 30px;
-      background: linear-gradient(to right, #cfd9df, #e2ebf0);
-      border-radius: 6px;
-      box-shadow: inset 0 0 1px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-      margin-left: auto;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .issuer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      opacity: 0.85;
+      z-index: 2;
     }
 
     .footer {
@@ -179,8 +185,6 @@
       text-align: center;
       margin-top: 30px;
     }
-    
-    
 
     @media (max-width: 480px) {
       .card {
@@ -189,63 +193,60 @@
       }
 
       .card-balance {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .card-title {
-        font-size: 18px;
+        font-size: 16px;
       }
 
-      @media (max-width: 480px) {
-  .message {
-    font-size: 14px;
-    margin: 25px auto 15px auto;  /* oldalsó margó auto, így középre kerül */
-    padding: 15px 20px;
-    max-width: 95vw;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0, 50, 150, 0.15);
-  }
-}
+      .message {
+        font-size: 14px;
+        margin: 25px auto 15px auto;
+        padding: 15px 20px;
+        max-width: 95vw;
+        border-radius: 12px;
+      }
+    }
   </style>
 </head>
 <body>
- <div class="navbar">
-  <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
-  <span class="navbar-text">
-    <span class="red">Közvagyon </span>
-    <span class="white">Megmentése </span>
-    <span class="green">Program</span>
-  </span>
-</div>
 
-
-
+  <div class="navbar">
+    <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
+    <span class="navbar-text">
+      <span class="red">Közvagyon </span>
+      <span class="white">megmentése </span>
+      <span class="green">program</span>
+    </span>
+  </div>
 
   <div class="message">
-   
-  Őrizzük meg együtt a közpénz tisztaságát a rendszer váltásáig! Minden apró perc, amit erre szánsz – legyen az akár egy perc vagy egy óra –, hatalmas lépés a közvagyon megmentésében.<br />
-  Ne hagyjuk elveszni azt, ami mindannyiunké – a közvagyon nem magántulajdon!<br />
-   
+    Őrizzük meg együtt a közpénz tisztaságát a rendszer váltásáig! Minden apró perc, amit erre szánsz – legyen az akár egy perc vagy egy óra –, hatalmas lépés a közvagyon megmentésében. Ne hagyjuk elveszni, amit mindannyian közösen építettünk!
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-title">Közpénz Kártya</div>
+      <div class="card-title">Nemzeti Kártya</div>
       <div class="chip"></div>
     </div>
+
+    <div class="card-number">0000 0000 0000 0000</div>
 
     <div class="card-balance">Egyenleg: 0 Ft</div>
 
     <div class="card-meta">Kibocsátó: Magyar Állampolgárok</div>
     <div class="card-meta">Érvényes: 2026.04.11.</div>
 
+    <div class="hologram"></div>
     <div id="countdown" class="countdown">-- nap -- óra -- perc -- másodperc</div>
+    <img src="issuer-logo.png" alt="Kibocsátó logó" class="issuer-logo" />
   </div>
 
-  <div class="footer">Frissítve: 2025. 06. 30. 12:05:25</div>
+  <div class="footer">Frissítve: 2025. 06. 29. 14:00:00</div>
 
   <script>
-    const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3 (0-al kezdődik)
+    const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
 
     function updateCountdown() {
       const now = new Date();
@@ -269,5 +270,6 @@
     updateCountdown();
     const intervalId = setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
