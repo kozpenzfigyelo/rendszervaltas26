@@ -268,23 +268,24 @@
     const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
 
     function updateCountdown() {
-      const now = new Date();
-      const remaining = targetDate - now;
+  const now = new Date();
+  const remaining = targetDate - now;
 
-      if (remaining <= 0) {
-        document.getElementById('countdown').textContent = "Lejárt!";
-        clearInterval(intervalId);
-        return;
-      }
+  if (remaining <= 0) {
+    document.getElementById('countdown').textContent = "Lejárt!";
+    clearInterval(intervalId);
+    return;
+  }
 
-      const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
-      const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-      const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
-      const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
+  const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+  const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+  const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+  const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
 
-      document.getElementById('countdown').textContent =
-        ${days} nap ${hours} óra ${minutes} perc ${seconds} másodperc;
-    }
+  document.getElementById('countdown').textContent =
+    `${days} nap ${hours} óra ${minutes} perc ${seconds} másodperc`;
+}
+
 
     updateCountdown();
     const intervalId = setInterval(updateCountdown, 1000);
