@@ -6,7 +6,7 @@
   <title>Nemzeti Kártya</title>
   <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet">
   <style>
-     body {
+      body {
   margin: 0;
   min-height: 100vh;
   /* háttérkép és lineáris átfedés */
@@ -27,7 +27,7 @@
       left: 0;
       width: 100%;
       height: 60px;
-      background-color: #141e30;
+      background-color: #003087;
       display: flex;
       align-items: center;
       padding: 0 20px;
@@ -36,43 +36,29 @@
     }
 
     .navbar-text {
-  font-weight: 600;
-  font-size: 20px;
-  margin-left: 15px;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  word-break: break-word;
-}
-
-@media (max-width: 480px) {
-  .navbar-text {
-    font-size: 14px;
-    margin-left: 10px;
-  }
-}
-
-    .red { color: #c8102e; }
-    .white { color: #ffffff; text-shadow: 0 0 3px rgba(0,0,0,0.7); }
-    .green { color: #007a33; }
+      font-weight: 600;
+      font-size: 20px;
+      margin-left: 15px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
 
     .navbar img {
-      height: 60px;
+      height: 40px;
       width: auto;
-      user-select: none;
+      margin-right: 10px;
     }
 
     .message {
       width: 90%;
       max-width: 420px;
       margin: 40px auto 20px auto;
-      color: #0b2a59;
+      color: #003087;
       font-size: 17px;
       font-weight: 600;
       text-align: center;
-      background-color: #88e8ff;
+      background-color: #a7f0ff;
       padding: 20px 25px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 50, 150, 0.2);
@@ -82,7 +68,7 @@
       width: 90%;
       max-width: 420px;
       height: 260px;
-      background: linear-gradient(135deg, #141e30, #243b55);
+      background: linear-gradient(135deg, #003087, #0070ba);
       border-radius: 20px;
       padding: 24px;
       margin: 0 auto;
@@ -91,7 +77,7 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      color: #e4e4e4;
+      color: #fff;
       overflow: hidden;
     }
 
@@ -126,7 +112,6 @@
       font-size: 18px;
       font-weight: 600;
       text-transform: uppercase;
-      color: #00d4ff;
       letter-spacing: 1px;
     }
 
@@ -151,9 +136,27 @@
     .card-balance {
       font-size: 26px;
       font-weight: 700;
-      color: #ffffff;
       z-index: 2;
+      transition: color 0.2s ease;
     }
+
+   .card-balance.animate {
+  animation: glowPulse 0.8s ease-in-out;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+  }
+  50% {
+    transform: scale(1.15);
+    text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
+  }
+}
+
 
     .card-number {
       font-family: 'OCR A Std', monospace;
@@ -168,7 +171,7 @@
 
     .card-meta {
       font-size: 13px;
-      color: #9baec8;
+      color: #e4e4e4;
       z-index: 2;
     }
 
@@ -182,15 +185,6 @@
       border-radius: 12px;
       backdrop-filter: blur(6px);
       font-weight: 500;
-      z-index: 2;
-    }
-
-    .issuer-logo {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      opacity: 0.85;
       z-index: 2;
     }
 
@@ -223,32 +217,19 @@
         border-radius: 12px;
       }
     }
-	
-	
   </style>
 </head>
 <body>
 
   <div class="navbar">
-    <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
-    <span class="navbar-text">
-      <span class="red">Tiszta </span>
-      <span class="white">Közpénz </span>
-      <span class="green">Alap</span>
-    </span>
+   <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
+    <span class="navbar-text">Tiszta Közpénz Alap</span>
   </div>
 
   <div class="message">
-Támogasd, hogy a közvagyon ne vesszen el, hanem valóban a közösség javát szolgálja!
-Nem pénzzel, hanem idővel, figyelemmel és közös akarattal fordulunk a változás felé.
-
-Ez a kártya a mi közös alapunk — megmutatja, mennyit építettünk vissza együtt abból, amit elvettek tőlünk.
-
-Minden perc közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarországhoz.
-
-
-
-
+  Támogasd a közvagyon ellopásának megállítását és igazságos elosztását, hogy a társadalom minden tagja részesülhessen belőle!<br>
+    Lépésről lépésre visszaépítjük azt, amit elvettek tőlünk.<br>
+ Minden perc, amit együtt teszünk, közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarországhoz.
   </div>
 
   <div class="card">
@@ -258,19 +239,17 @@ Minden perc közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarors
     </div>
 
     <div class="card-number">6510 2154 1231 8654</div>
-
     <div class="card-balance">Egyenleg: 0 Ft</div>
-
     <div class="card-meta">Kibocsátó: Magyar Állampolgárok</div>
     <div class="card-meta">Érvényes: 2026.04.11.</div>
-
     <div class="hologram"></div>
     <div id="countdown" class="countdown">-- nap -- óra -- perc -- másodperc</div>
   </div>
 
-  <div class="footer">Frissítve: 2025. 07. 03. 13:05:08</div>
+  <div class="footer">Frissítve: 2025. 07. 04.</div>
 
   <script>
+    // Countdown
     const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
 
     function updateCountdown() {
@@ -294,6 +273,44 @@ Minden perc közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarors
 
     updateCountdown();
     const intervalId = setInterval(updateCountdown, 1000);
+
+    // Egyenleg növekedés animációval
+    let balance = 0;
+    let displayBalance = 0;
+    const increments = [10, 15, 5];
+    let incIndex = 0;
+    const duration = 600;
+
+    function animateBalanceChange(start, end, duration) {
+      const startTime = performance.now();
+      const balanceEl = document.querySelector('.card-balance');
+      balanceEl.classList.add('animate');
+
+      function animate(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.floor(start + (end - start) * progress);
+        balanceEl.textContent = `Egyenleg: ${current} Ft`;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          displayBalance = end;
+          setTimeout(() => balanceEl.classList.remove('animate'), 100);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function updateBalance() {
+      const increment = increments[incIndex];
+      const newBalance = balance + increment;
+      animateBalanceChange(displayBalance, newBalance, duration);
+      balance = newBalance;
+      incIndex = (incIndex + 1) % increments.length;
+    }
+
+    setInterval(updateBalance, 100000);
   </script>
 
 </body>
