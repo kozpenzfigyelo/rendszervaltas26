@@ -41,10 +41,13 @@
       align-items: center;
     }
     .navbar img {
-      height: 40px;
-      width: auto;
-      margin-right: 10px;
-    }
+  height: 40px;
+  width: 40px; /* fix négyzetméret, hogy kör legyen */
+  border-radius: 50%;
+  object-fit: cover; /* ha a kép nem négyzetes, akkor is jól töltse ki */
+  margin-right: 10px;
+}
+
     .message {
       width: 90%;
       max-width: 420px;
