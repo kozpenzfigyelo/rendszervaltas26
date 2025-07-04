@@ -249,74 +249,60 @@
   <div class="footer">Frissítve: 2025. 07. 04.</div>
 
   <script>
-  const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
+    // Countdown
+    const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
 
-  function updateCountdown() {
-    const now = new Date();
-    const remaining = targetDate - now;
+    function updateCountdown() {
+      const now = new Date();
+      const remaining = targetDate - now;
 
-    if (remaining <= 0) {
-      document.getElementById('countdown').textContent = "Lejárt!";
-      clearInterval(intervalId);
-      return;
-    }
-
-    const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
-    const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-    const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
-    const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
-
-    document.getElementById('countdown').textContent =
-      `${days} nap ${hours} óra ${minutes} perc ${seconds} másodperc`;
-  }
-
-  updateCountdown();
-  const intervalId = setInterval(updateCountdown, 1000);
-
-  // --- Egyenleg animáció + tárolás ---
-  let stored = localStorage.getItem('balance');
-  let balance = stored ? parseInt(stored, 10) : 0;
-  let displayBalance = balance;
-  const increments = [10, 15, 5];
-  let incIndex = 0;
-  const duration = 600;
-
-  function animateBalanceChange(start, end, duration) {
-    const startTime = performance.now();
-    const balanceEl = document.querySelector('.card-balance');
-    balanceEl.classList.add('animate');
-
-    function animate(now) {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const current = Math.floor(start + (end - start) * progress);
-      balanceEl.textContent = `Egyenleg: ${current} Ft`;
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        displayBalance = end;
-        setTimeout(() => balanceEl.classList.remove('animate'), 100);
+      if (remaining <= 0) {
+        document.getElementById('countdown').textContent = "Lejárt!";
+        clearInterval(intervalId);
+        return;
       }
+
+      const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+      const hours = Math.floor((remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+      const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((remaining % (60 * 1000)) / 1000);
+
+      document.getElementById('countdown').textContent =
+        `${days} nap ${hours} óra ${minutes} perc ${seconds} másodperc`;
     }
 
-    requestAnimationFrame(animate);
-  }
+    updateCountdown();
+    const intervalId = setInterval(updateCountdown, 1000);
 
-  function updateBalance() {
-    const increment = increments[incIndex];
-    const newBalance = balance + increment;
-    animateBalanceChange(displayBalance, newBalance, duration);
-    balance = newBalance;
-    incIndex = (incIndex + 1) % increments.length;
-    localStorage.setItem('balance', balance); // 💾 mentés
-  }
+    // Egyenleg animáció + tárolás
+    let stored = localStorage.getItem('balance');
+    let balance = stored ? parseInt(stored, 10) : 0;
+    let displayBalance = balance;
+    const increments = [10, 15, 5];
+    let incIndex = 0;
+    const duration = 600;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.card-balance').textContent = `Egyenleg: ${balance} Ft`;
-  });
+    function animateBalanceChange(start, end, duration) {
+      const startTime = performance.now();
+      const balanceEl = document.querySelector('.card-balance');
+      balanceEl.classList.add('animate');
 
-  setInterval(updateBalance, 1000);
-</script>
+      function animate(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.floor(start + (end - start) * progress);
+        balanceEl.textContent = `Egyenleg: ${current} Ft`;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          displayBalance = end;
+          setTimeout(() => balanceEl.classList.remove('animate'), 100);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
 
 
 </body>
