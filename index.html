@@ -4,23 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nemzeti Kártya</title>
-  <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=OCR+A+Std&display=swap" rel="stylesheet" />
   <style>
-      body {
-  margin: 0;
-  min-height: 100vh;
-  /* háttérkép és lineáris átfedés */
-  background-image:
-    linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
-    url('tt.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
-  font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  padding-top: 60px; /* hely a navbar-nak */
-}
-
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-image:
+        linear-gradient(to bottom, rgba(11, 13, 60, 0.8) 0%, rgba(224, 228, 248, 0.9) 50%, rgba(224, 228, 248, 1) 100%),
+        url('tt.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
     .navbar {
       position: fixed;
       top: 0;
@@ -34,7 +32,6 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       z-index: 2000;
     }
-
     .navbar-text {
       font-weight: 600;
       font-size: 20px;
@@ -43,13 +40,11 @@
       display: flex;
       align-items: center;
     }
-
     .navbar img {
       height: 40px;
       width: auto;
       margin-right: 10px;
     }
-
     .message {
       width: 90%;
       max-width: 420px;
@@ -63,7 +58,6 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 50, 150, 0.2);
     }
-
     .card {
       width: 90%;
       max-width: 420px;
@@ -80,7 +74,6 @@
       color: #fff;
       overflow: hidden;
     }
-
     .card::before {
       content: "";
       position: absolute;
@@ -94,12 +87,10 @@
       border-radius: 20px;
       z-index: 1;
     }
-
     @keyframes shine {
       0% { left: -75%; }
       100% { left: 125%; }
     }
-
     .card-header {
       display: flex;
       justify-content: space-between;
@@ -107,14 +98,12 @@
       position: relative;
       z-index: 2;
     }
-
     .card-title {
       font-size: 18px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .chip {
       width: 42px;
       height: 30px;
@@ -122,7 +111,6 @@
       border-radius: 6px;
       box-shadow: inset 0 0 1px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
     }
-
     .hologram {
       width: 50px;
       height: 35px;
@@ -132,32 +120,27 @@
       box-shadow: 0 0 4px rgba(255,255,255,0.3);
       margin-top: 8px;
     }
-
     .card-balance {
       font-size: 26px;
       font-weight: 700;
       z-index: 2;
       transition: color 0.2s ease;
     }
-
-   .card-balance.animate {
-  animation: glowPulse 0.8s ease-in-out;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    transform: scale(1);
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-  }
-  50% {
-    transform: scale(1.15);
-    text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
-  }
-}
-
-
+    .card-balance.animate {
+      animation: glowPulse 0.8s ease-in-out;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    }
+    @keyframes glowPulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+      }
+      50% {
+        transform: scale(1.15);
+        text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
+      }
+    }
     .card-number {
       font-family: 'OCR A Std', monospace;
       font-size: 20px;
@@ -168,13 +151,11 @@
       margin: 10px 0;
       z-index: 2;
     }
-
     .card-meta {
       font-size: 13px;
       color: #e4e4e4;
       z-index: 2;
     }
-
     .countdown {
       font-size: 15px;
       text-align: center;
@@ -187,28 +168,23 @@
       font-weight: 500;
       z-index: 2;
     }
-
     .footer {
       color: black;
       font-size: 13px;
       text-align: center;
       margin-top: 30px;
     }
-
     @media (max-width: 480px) {
       .card {
         height: 220px;
         padding: 15px 20px;
       }
-
       .card-balance {
         font-size: 22px;
       }
-
       .card-title {
         font-size: 16px;
       }
-
       .message {
         font-size: 14px;
         margin: 25px auto 15px auto;
@@ -222,14 +198,14 @@
 <body>
 
   <div class="navbar">
-   <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
+    <img src="ChatGPT Image 2025. jún. 29. 10_43_43.png" alt="Kézbilincs logó" />
     <span class="navbar-text">Tiszta Közpénz Alap</span>
   </div>
 
   <div class="message">
-  Támogasd a közvagyon ellopásának megállítását és igazságos elosztását, hogy a társadalom minden tagja részesülhessen belőle!<br>
-    Lépésről lépésre visszaépítjük azt, amit elvettek tőlünk.<br>
- Minden perc, amit együtt teszünk, közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarországhoz.
+    Támogasd a közvagyon ellopásának megállítását és igazságos elosztását, hogy a társadalom minden tagja részesülhessen belőle!<br />
+    Lépésről lépésre visszaépítjük azt, amit elvettek tőlünk.<br />
+    Minden perc, amit együtt teszünk, közelebb visz egy tisztább, igazságosabb és élhetőbb Magyarországhoz.
   </div>
 
   <div class="card">
@@ -250,7 +226,7 @@
 
   <script>
     // Countdown
-    const targetDate = new Date(2026, 3, 12, 24, 10, 0); // április = 3
+    const targetDate = new Date(2026, 3, 12, 24, 10, 0); // 2026. április 12, 24:10:00
 
     function updateCountdown() {
       const now = new Date();
@@ -258,7 +234,7 @@
 
       if (remaining <= 0) {
         document.getElementById('countdown').textContent = "Lejárt!";
-        clearInterval(intervalId);
+        clearInterval(countdownInterval);
         return;
       }
 
@@ -272,15 +248,12 @@
     }
 
     updateCountdown();
-    const intervalId = setInterval(updateCountdown, 1000);
+    const countdownInterval = setInterval(updateCountdown, 1000);
 
-    // Egyenleg animáció + tárolás
-    let stored = localStorage.getItem('balance');
-    let balance = stored ? parseInt(stored, 10) : 0;
-    let displayBalance = balance;
+    // Egyenleg frissítés 12 óránkénti növekedéssel
+    // Az increment értékei - akár tetszőleges sorozat
     const increments = [10, 15, 5];
     let incIndex = 0;
-    const duration = 600;
 
     function animateBalanceChange(start, end, duration) {
       const startTime = performance.now();
@@ -295,15 +268,75 @@
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
-          displayBalance = end;
-          setTimeout(() => balanceEl.classList.remove('animate'), 100);
+          balanceEl.classList.remove('animate');
         }
       }
 
       requestAnimationFrame(animate);
     }
 
+    function loadBalanceData() {
+      const dataJSON = localStorage.getItem('balanceData');
+      if (!dataJSON) return null;
 
+      try {
+        return JSON.parse(dataJSON);
+      } catch {
+        return null;
+      }
+    }
 
+    function saveBalanceData(balance, lastUpdate) {
+      localStorage.setItem('balanceData', JSON.stringify({ balance, lastUpdate }));
+    }
+
+    function updateBalance() {
+      const now = Date.now();
+      let data = loadBalanceData();
+
+      if (!data) {
+        // Ha nincs adat, inicializáljuk
+        data = { balance: 0, lastUpdate: now };
+        saveBalanceData(data.balance, data.lastUpdate);
+      }
+
+      // Mennyi idő telt el az utolsó frissítés óta?
+      const elapsed = now - data.lastUpdate;
+      const twelveHours = 12 * 60 * 60 * 1000;
+
+      if (elapsed >= twelveHours) {
+        // Hány 12 órás ciklus telt el?
+        const cycles = Math.floor(elapsed / twelveHours);
+
+        for (let i = 0; i < cycles; i++) {
+          data.balance += increments[incIndex];
+          incIndex = (incIndex + 1) % increments.length;
+        }
+
+        data.lastUpdate += cycles * twelveHours; // léptetjük az utolsó frissítés idejét
+        saveBalanceData(data.balance, data.lastUpdate);
+      } else {
+        // Ha nincs frissítés, akkor incIndex visszaállítása az aktuális egyenleghez
+        // Végig kell számolni, hány lépés kellett az aktuális egyenleghez
+        let sum = 0, idx = 0;
+        while (sum < data.balance) {
+          sum += increments[idx];
+          idx = (idx + 1) % increments.length;
+        }
+        incIndex = idx % increments.length;
+      }
+
+      animateBalanceChange(0, data.balance, 800);
+      document.querySelector('.card-balance').textContent = `Egyenleg: ${data.balance} Ft`;
+
+      return data.balance;
+    }
+
+    // Betöltéskor frissítjük az egyenleget
+    updateBalance();
+
+    // Mivel csak 12 óránként frissül, beállíthatunk egy időzítőt, ami pl. 1 percenként ellenőriz
+    setInterval(updateBalance, 60 * 1000);
+  </script>
 </body>
 </html>
